@@ -1,0 +1,50 @@
+.register-student {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.register-student h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.register-student form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-student label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.register-student input[type="text"],
+.register-student select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.register-student button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.register-student button[type="submit"]:hover {
+  background-color: #45a049;
+}

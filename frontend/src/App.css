@@ -8,6 +8,27 @@
   padding: 20px;
 }
 
+/* App.css */
+.add-student-button {
+  background-color:  #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block; /* Ensures block-level display */
+  text-align: center;
+  border: 1px solid #212529;
+}
+
+.add-student-button:hover {
+  background-color: #ffffff; /* Example of hover effect */
+}
+
+.add-student-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
 /* Styles for Search input */
 .search-input {
   margin-right: 10px;
