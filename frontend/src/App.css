@@ -1,0 +1,96 @@
+/* styles.css */
+
+/* Styles for App container */
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Styles for Search input */
+.search-input {
+  margin-right: 10px;
+  padding: 5px;
+  width: 200px;
+}
+
+/* Styles for Data table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+}
+
+.data-table th {
+  background-color: #f2f2f2;
+}
+
+/* Styles for Buttons */
+button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  /* Default button color */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  width: 70px;
+  font-size: 12px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Specific button styles for delete */
+button.delete {
+  background-color: #dc3545;
+}
+
+button.delete:hover {
+  background-color: #bd2130;
+}
+
+/* Specific button styles for edit */
+button.edit {
+  background-color: #ffc107;
+  color: #212529; /* Adjust text color for visibility */
+}
+
+button.edit:hover {
+  background-color: #e0a800;
+}
+
+/* Specific button styles for more details */
+button.more-details {
+  background-color: #28a745;
+}
+
+button.more-details:hover {
+  background-color: #218838;
+}
+
+/* Positioning Search input */
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    width: 100%;
+    max-width: 300px; /* Adjust maximum width as needed */
+  }
+
+  .data-table {
+    overflow-x: auto; /* Enable horizontal scrolling on small screens */
+  }
+}
