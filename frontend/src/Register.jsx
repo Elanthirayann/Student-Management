@@ -1,6 +1,7 @@
 import React from "react";
 import "./Reg.css";
 import { useState } from "react";
+import axios from "axios";
 
 
 const Register = () => {
@@ -11,17 +12,36 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
 
+  async function  HandleSubmit(e){
+    e.preventDefault();
+    axios.post("http://localhost:5000/register", {
+        name: name,
+        grade: grade,
+        class: clas,
+        gender: gender,
+        address: address,
+        phone: phone,
+      })
+     .then(function (response) {
+        console.log(response);
+      })
+     .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+
   return (
     <div className="register-student">
       <h2>Add New Student</h2>
-      <form>
+      <form onSubmit={HandleSubmit}>
         <label>
           Name:
           <input
             type="text"
             required
             value={name}
-            onchange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
         <label>
@@ -30,7 +50,7 @@ const Register = () => {
             type="text"
             required
             value={grade}
-            onchange={(e) => setGrade(e.target.value)}
+            onChange={(e) => setGrade(e.target.value)}
           />
         </label>
         <label>
@@ -39,7 +59,7 @@ const Register = () => {
             type="text"
             required
             value={clas}
-            onchange={(e) => setClas(e.target.value)}
+            onChange={(e) => setClas(e.target.value)}
           />
         </label>
         <label>
@@ -60,14 +80,14 @@ const Register = () => {
             type="text"
             required
             value={address}
-            onchange={(e) => setAddress(e.target.value)}
+            onChange={(e) => setAddress(e.target.value)}
           />
         </label>
         <label>
           Phone Number:
           <input type="text" required 
           value={phone}
-          onchange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value)}
           />
         </label>
         <button type="submit">Add Student</button>
