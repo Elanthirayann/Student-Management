@@ -1,5 +1,7 @@
 /* styles.css */
-
+* {
+  background-color: whitesmoke;
+}
 /* Styles for App container */
 .App {
   font-family: Arial, sans-serif;
@@ -11,6 +13,7 @@
   margin-right: 10px;
   padding: 5px;
   width: 200px;
+  height: 28px;
 }
 
 /* Styles for Data table */
@@ -41,28 +44,45 @@ button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  width: 70px;
   font-size: 12px;
+  border: 1px solid #212529;
 }
 
 /* Hover effect for buttons */
 button:hover {
   background-color: #0056b3;
+  color: #f2f2f2;
 }
 
 /* Specific button styles for delete */
 button.delete {
-  background-color: #dc3545;
+  background: linear-gradient(
+    to bottom,
+    #dc3545,
+    #bd2130
+  ); /* Linear gradient background */
+  width: 70px;
+  color: #fff; /* Text color */
+  border: 1px solid #212529; /* Black border with 1px width */
+  padding: 8px 12px; /* Adjust padding as needed */
+  cursor: pointer;
 }
 
 button.delete:hover {
-  background-color: #bd2130;
+  background: linear-gradient(
+    to bottom,
+    #bd2130,
+    #dc3545
+  ); /* Gradient on hover */
+  border-color: #fff;
 }
 
 /* Specific button styles for edit */
 button.edit {
   background-color: #ffc107;
   color: #212529; /* Adjust text color for visibility */
+  width: 70px;
+  border: 1px solid #212529;
 }
 
 button.edit:hover {
@@ -72,6 +92,8 @@ button.edit:hover {
 /* Specific button styles for more details */
 button.more-details {
   background-color: #28a745;
+  width: 70px;
+  border: 1px solid #212529;
 }
 
 button.more-details:hover {
