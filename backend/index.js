@@ -12,6 +12,11 @@ mongoose.connect('mongodb://localhost:27017/studentDB');
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
+  app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
+});
+
+
 });
 
 app.post('/register',async(req,res)=>{
@@ -23,6 +28,11 @@ app.post('/register',async(req,res)=>{
   }
 })
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+app.get('/register',async(req,res)=>{
+  try{
+      const studentList = await Student.find({})
+      res.status(200).json(studentList)
+  }catch(err){
+    res.status(400).send(err.message)
+  }
+})

@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./App.css";
 import { Link } from "react-router-dom";
 
-function Dash() {
-  const [students, setStudents] = useState([
-    { id: 1, name: "John Doe", grade: "A", class: "10A", gender: "Male" },
-    { id: 2, name: "Jane Smith", grade: "B", class: "9B", gender: "Female" },
-    { id: 3, name: "Jane Doe", grade: "C", class: "8C", gender: "Female" },
-    { id: 4, name: "John Smith", grade: "D", class: "7D", gender: "Male" },
-    { id: 5, name: "Jane Doe", grade: "E", class: "6E", gender: "Female" },
-  ]);
+const Dash = () => {
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/register');
+        setStudents(response.data);
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="App">
@@ -18,7 +26,6 @@ function Dash() {
           Add New Student
         </Link>
       </button>
-
 
       <div className="search-container">
         <input
@@ -44,8 +51,8 @@ function Dash() {
         </thead>
         <tbody>
           {students.map((student) => (
-            <tr key={student.id}>
-              <td>{student.id}</td>
+            <tr key={student._id}>
+              <td>{student._id}</td>
               <td>{student.name}</td>
               <td>{student.grade}</td>
               <td>{student.class}</td>
@@ -65,6 +72,6 @@ function Dash() {
       </table>
     </div>
   );
-}
+};
 
 export default Dash;
