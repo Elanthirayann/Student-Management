@@ -6,17 +6,25 @@ import axios from "axios";
 const Register = () => {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
-  const [classVal, setClassVal] = useState("");  // Changed to classVal to avoid keyword conflict
+  const [classVal, setClassVal] = useState(""); // Changed to classVal to avoid keyword conflict
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/register', { name, grade, class: classVal, gender, address, phonenumber })  // Corrected
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  }
+    axios
+      .post("http://localhost:5000/register", {
+        name,
+        grade,
+        clas: classVal,
+        gender,
+        address,
+        phonenumber,
+      }) // Corrected
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="register-student">
@@ -72,9 +80,9 @@ const Register = () => {
         </label>
         <label>
           Phone Number:
-          <input 
-            type="text" 
-            required 
+          <input
+            type="text"
+            required
             value={phonenumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />

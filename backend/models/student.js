@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-
+// Define the schema for the student
 const studentSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -11,10 +11,10 @@ const studentSchema = new mongoose.Schema({
     required: true,
   },
   clas: {
-    type: String, 
+    type: String,
     required: true,
   },
-  gender : {
+  gender: {
     type: String,
     required: true,
   },
@@ -22,9 +22,11 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phone: Number,
+  phone : Number,
 });
 
+// Create a model based on the schema
+const Student = mongoose.model("Student", studentSchema);
 
-const Student = mongoose.model('Student', studentSchema);
+// Export the model to be used in other parts of the application
 module.exports = Student;

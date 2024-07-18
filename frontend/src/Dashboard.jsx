@@ -19,6 +19,17 @@ const Dash = () => {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/student/${id}`);
+      const updatedStudents = students.filter((student) => student._id!== id);
+      setStudents(updatedStudents);
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
+
+  
   return (
     <div className="App">
       <button className="add-student-button">
@@ -50,9 +61,9 @@ const Dash = () => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {students.map((student, index) => (
             <tr key={student._id}>
-              <td>{student._id}</td>
+              <td>{index + 1}</td>
               <td>{student.name}</td>
               <td>{student.grade}</td>
               <td>{student.class}</td>
@@ -61,10 +72,17 @@ const Dash = () => {
                 <button className="more-details">Details</button>
               </td>
               <td>
-                <button className="edit">Edit</button>
+                <Link to={`/updateStudent/${student._id}`} className="add-student-link">
+                  Edit
+                </Link>
               </td>
               <td>
-                <button className="delete">Delete</button>
+                <button
+                  className="delete"
+                  onClick={() => handleDelete(student._id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
